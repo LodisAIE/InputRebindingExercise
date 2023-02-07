@@ -12,11 +12,14 @@ public class GameManagerBehaviour : MonoBehaviour
     private bool _paused;
     private static GameManagerBehaviour _instance;
     [SerializeField]
+    private PlayerInput _playerInput;
+    [SerializeField]
     private UnityEvent _onPause;
     [SerializeField]
     private UnityEvent _onUnpause;
 
     public int Score { get => _score; set => _score = value; }
+    public PlayerInput PlayerController { get => _playerInput; }
 
     private void Awake()
     {

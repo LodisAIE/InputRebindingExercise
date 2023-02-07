@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &53542891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 269930487}
   - component: {fileID: 269930486}
   - component: {fileID: 269930485}
+  - component: {fileID: 269930488}
   m_Layer: 5
   m_Name: MoveUp
   m_TagString: Untagged
@@ -267,9 +268,9 @@ RectTransform:
   m_Father: {fileID: 53542891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331, y: -35.800003}
   m_SizeDelta: {x: 289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269930485
@@ -316,10 +317,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809922390}
-        m_TargetAssemblyTypeName: GameManagerBehaviour, Assembly-CSharp
-        m_MethodName: TogglePause
-        m_Mode: 1
+      - m_Target: {fileID: 269930488}
+        m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
+        m_MethodName: RebindComposite
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -366,6 +367,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269930483}
   m_CullTransparentMesh: 1
+--- !u!114 &269930488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269930483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a86c247d99ad249b3186edec5f38d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonTextBox: {fileID: 1082282239}
+  _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
 --- !u!1 &368492776
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +520,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3465754927248193827, guid: 68d22c45d8b767f4fa2f11488d918d19, type: 3}
   m_PrefabInstance: {fileID: 3465754925557332265}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &399493783
+--- !u!114 &399493791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -532,7 +547,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 399493784}
+      - m_Target: {fileID: 399493793}
         m_TargetAssemblyTypeName: InputBehaviour, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -548,7 +563,7 @@ MonoBehaviour:
     m_ActionName: ShipControls/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 399493784}
+      - m_Target: {fileID: 399493793}
         m_TargetAssemblyTypeName: InputBehaviour, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 0
@@ -564,7 +579,7 @@ MonoBehaviour:
     m_ActionName: ShipControls/Fire[/Keyboard/space,/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 399493784}
+      - m_Target: {fileID: 399493793}
         m_TargetAssemblyTypeName: InputBehaviour, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 0
@@ -578,23 +593,16 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 89d7d436-6ac5-46b5-bff4-7c79e541499a
     m_ActionName: ShipControls/Pause[/Keyboard/p,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56a1e5dc-66ed-4ce7-b8f8-5109b97c1c81
+    m_ActionName: Menu/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: ShipControls
+  m_DefaultActionMap: Ship
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &399493784 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5182695736188818340, guid: 68d22c45d8b767f4fa2f11488d918d19, type: 3}
-  m_PrefabInstance: {fileID: 3465754925557332265}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399493782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 304736ebc1947ae44ab0f84d1de8f7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &399493785 stripped
+--- !u!114 &399493792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6754812725803021191, guid: 68d22c45d8b767f4fa2f11488d918d19, type: 3}
   m_PrefabInstance: {fileID: 3465754925557332265}
@@ -603,6 +611,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d5f99409a674342b565bc0043eadc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &399493793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5182695736188818340, guid: 68d22c45d8b767f4fa2f11488d918d19, type: 3}
+  m_PrefabInstance: {fileID: 3465754925557332265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399493782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304736ebc1947ae44ab0f84d1de8f7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &582091947
@@ -638,10 +657,10 @@ RectTransform:
   m_Father: {fileID: 1724090938}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 437.32, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582091949
 MonoBehaviour:
@@ -663,7 +682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fire
+  m_text: 'Fire - Space
 
 '
   m_isRightToLeft: 0
@@ -754,6 +773,7 @@ GameObject:
   - component: {fileID: 631155553}
   - component: {fileID: 631155552}
   - component: {fileID: 631155551}
+  - component: {fileID: 631155554}
   m_Layer: 5
   m_Name: MoveLeft
   m_TagString: Untagged
@@ -777,9 +797,9 @@ RectTransform:
   m_Father: {fileID: 53542891}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331, y: -179.00002}
   m_SizeDelta: {x: 622.9, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631155551
@@ -825,7 +845,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1609986266}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 631155554}
+        m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
+        m_MethodName: RebindComposite
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &631155552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +896,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631155549}
   m_CullTransparentMesh: 1
+--- !u!114 &631155554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631155549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a86c247d99ad249b3186edec5f38d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonTextBox: {fileID: 1609986266}
+  _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
 --- !u!1 &647435041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,9 +1204,9 @@ RectTransform:
   m_Father: {fileID: 53542891}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331, y: -393.80005}
   m_SizeDelta: {x: 289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708791432
@@ -1236,7 +1282,7 @@ MonoBehaviour:
         m_MethodName: SetSelectedGameObject
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 988926309}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1293,6 +1339,7 @@ GameObject:
   - component: {fileID: 740201754}
   - component: {fileID: 740201753}
   - component: {fileID: 740201752}
+  - component: {fileID: 740201755}
   m_Layer: 5
   m_Name: MoveDown
   m_TagString: Untagged
@@ -1316,9 +1363,9 @@ RectTransform:
   m_Father: {fileID: 53542891}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331, y: -107.40001}
   m_SizeDelta: {x: 289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740201752
@@ -1365,14 +1412,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809922390}
-        m_TargetAssemblyTypeName: GameManagerBehaviour, Assembly-CSharp
-        m_MethodName: Restart
-        m_Mode: 1
+      - m_Target: {fileID: 740201755}
+        m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
+        m_MethodName: RebindComposite
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1415,6 +1462,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740201750}
   m_CullTransparentMesh: 1
+--- !u!114 &740201755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740201750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a86c247d99ad249b3186edec5f38d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonTextBox: {fileID: 1544157070}
+  _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
 --- !u!1 &933457930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2174,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Right
+  m_text: 'Right - D
 
 '
   m_isRightToLeft: 0
@@ -2250,7 +2311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Up
+  m_text: Up - W
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c8a215823959df44a33d7b8138de65f, type: 2}
   m_sharedMaterial: {fileID: 2802208257630027200, guid: 6c8a215823959df44a33d7b8138de65f, type: 2}
@@ -2608,7 +2669,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 933457932}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1463466549}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 53542890}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1857143194}
+        m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
+        m_MethodName: SetSelectedGameObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 269930483}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1441455165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,7 +3044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Down
+  m_text: 'Down - S
 
 '
   m_isRightToLeft: 0
@@ -3219,9 +3316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Left
-
-'
+  m_text: Left - A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c8a215823959df44a33d7b8138de65f, type: 2}
   m_sharedMaterial: {fileID: 2802208257630027200, guid: 6c8a215823959df44a33d7b8138de65f, type: 2}
@@ -3447,6 +3542,7 @@ GameObject:
   - component: {fileID: 1724090941}
   - component: {fileID: 1724090940}
   - component: {fileID: 1724090939}
+  - component: {fileID: 1724090942}
   m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
@@ -3470,9 +3566,9 @@ RectTransform:
   m_Father: {fileID: 53542891}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331, y: -322.2}
   m_SizeDelta: {x: 289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724090939
@@ -3519,14 +3615,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809922390}
-        m_TargetAssemblyTypeName: GameManagerBehaviour, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 1724090942}
+        m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
+        m_MethodName: Rebind
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3569,6 +3665,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724090937}
   m_CullTransparentMesh: 1
+--- !u!114 &1724090942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724090937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a86c247d99ad249b3186edec5f38d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonTextBox: {fileID: 582091949}
+  _rebindAction: {fileID: 8728493869376185514, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
 --- !u!1 &1794967618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,7 +3709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1475062470}
-  _playerHealth: {fileID: 399493785}
+  _playerHealth: {fileID: 399493792}
   _healthText: {fileID: 1564358403}
   _healthGradient:
     serializedVersion: 2
@@ -3674,6 +3784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b89464dee611ee47bef3084b3e5a90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInput: {fileID: 399493791}
   _onPause:
     m_PersistentCalls:
       m_Calls:
@@ -3755,6 +3866,7 @@ GameObject:
   - component: {fileID: 1834202761}
   - component: {fileID: 1834202760}
   - component: {fileID: 1834202759}
+  - component: {fileID: 1834202762}
   m_Layer: 5
   m_Name: MoveRight
   m_TagString: Untagged
@@ -3778,9 +3890,9 @@ RectTransform:
   m_Father: {fileID: 53542891}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 331, y: -250.60002}
   m_SizeDelta: {x: 289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834202759
@@ -3827,14 +3939,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1809922390}
-        m_TargetAssemblyTypeName: GameManagerBehaviour, Assembly-CSharp
-        m_MethodName: Quit
-        m_Mode: 1
+      - m_Target: {fileID: 1834202762}
+        m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
+        m_MethodName: RebindComposite
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3877,6 +3989,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834202757}
   m_CullTransparentMesh: 1
+--- !u!114 &1834202762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834202757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a86c247d99ad249b3186edec5f38d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonTextBox: {fileID: 1037600454}
+  _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
 --- !u!1 &1852865236
 GameObject:
   m_ObjectHideFlags: 0

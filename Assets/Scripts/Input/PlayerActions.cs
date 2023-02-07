@@ -24,7 +24,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     ""name"": ""PlayerActions"",
     ""maps"": [
         {
-            ""name"": ""ShipControls"",
+            ""name"": ""Ship"",
             ""id"": ""3e3d4c69-24f2-4d48-be8c-dab93ed98b9d"",
             ""actions"": [
                 {
@@ -156,15 +156,90 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""e083204b-3ef8-4778-a054-5430d7c5f331"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""56a1e5dc-66ed-4ce7-b8f8-5109b97c1c81"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""992705cd-eafd-4e03-aa85-c85d21e2bec5"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""462eb691-5978-4c87-9f30-7bf50aaff3ed"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""713aa083-0a04-4e59-99ec-add4e789f692"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""1b762242-da3c-440b-aa4d-62fafb5fa407"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f0c12ed1-f45f-4b0a-9ff8-5724d3a9448f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // ShipControls
-        m_ShipControls = asset.FindActionMap("ShipControls", throwIfNotFound: true);
-        m_ShipControls_Move = m_ShipControls.FindAction("Move", throwIfNotFound: true);
-        m_ShipControls_Fire = m_ShipControls.FindAction("Fire", throwIfNotFound: true);
-        m_ShipControls_Pause = m_ShipControls.FindAction("Pause", throwIfNotFound: true);
+        // Ship
+        m_Ship = asset.FindActionMap("Ship", throwIfNotFound: true);
+        m_Ship_Move = m_Ship.FindAction("Move", throwIfNotFound: true);
+        m_Ship_Fire = m_Ship.FindAction("Fire", throwIfNotFound: true);
+        m_Ship_Pause = m_Ship.FindAction("Pause", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -221,39 +296,39 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // ShipControls
-    private readonly InputActionMap m_ShipControls;
-    private IShipControlsActions m_ShipControlsActionsCallbackInterface;
-    private readonly InputAction m_ShipControls_Move;
-    private readonly InputAction m_ShipControls_Fire;
-    private readonly InputAction m_ShipControls_Pause;
-    public struct ShipControlsActions
+    // Ship
+    private readonly InputActionMap m_Ship;
+    private IShipActions m_ShipActionsCallbackInterface;
+    private readonly InputAction m_Ship_Move;
+    private readonly InputAction m_Ship_Fire;
+    private readonly InputAction m_Ship_Pause;
+    public struct ShipActions
     {
         private @PlayerActions m_Wrapper;
-        public ShipControlsActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_ShipControls_Move;
-        public InputAction @Fire => m_Wrapper.m_ShipControls_Fire;
-        public InputAction @Pause => m_Wrapper.m_ShipControls_Pause;
-        public InputActionMap Get() { return m_Wrapper.m_ShipControls; }
+        public ShipActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Ship_Move;
+        public InputAction @Fire => m_Wrapper.m_Ship_Fire;
+        public InputAction @Pause => m_Wrapper.m_Ship_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ShipControlsActions set) { return set.Get(); }
-        public void SetCallbacks(IShipControlsActions instance)
+        public static implicit operator InputActionMap(ShipActions set) { return set.Get(); }
+        public void SetCallbacks(IShipActions instance)
         {
-            if (m_Wrapper.m_ShipControlsActionsCallbackInterface != null)
+            if (m_Wrapper.m_ShipActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnMove;
-                @Fire.started -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnFire;
-                @Pause.started -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_ShipControlsActionsCallbackInterface.OnPause;
+                @Move.started -= m_Wrapper.m_ShipActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_ShipActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_ShipActionsCallbackInterface.OnMove;
+                @Fire.started -= m_Wrapper.m_ShipActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_ShipActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_ShipActionsCallbackInterface.OnFire;
+                @Pause.started -= m_Wrapper.m_ShipActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_ShipActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_ShipActionsCallbackInterface.OnPause;
             }
-            m_Wrapper.m_ShipControlsActionsCallbackInterface = instance;
+            m_Wrapper.m_ShipActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -268,11 +343,48 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
             }
         }
     }
-    public ShipControlsActions @ShipControls => new ShipControlsActions(this);
-    public interface IShipControlsActions
+    public ShipActions @Ship => new ShipActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Move;
+    public struct MenuActions
+    {
+        private @PlayerActions m_Wrapper;
+        public MenuActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Menu_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
+    public interface IShipActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnMove(InputAction.CallbackContext context);
     }
 }
