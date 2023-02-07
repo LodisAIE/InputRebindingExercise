@@ -15,6 +15,7 @@ public class HealthBehaviour : MonoBehaviour
 
     public float Health { get => _health; private set => _health = value; }
     public float MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+    public UnityEvent OnDeath { get => _onDeath; set => _onDeath = value; }
 
     public void Start()
     {
@@ -28,7 +29,7 @@ public class HealthBehaviour : MonoBehaviour
         if (_health <= 0)
         {
             _health = 0;
-            _onDeath?.Invoke();
+            OnDeath?.Invoke();
 
             GameObject explosionInstance = Instantiate(_explosion, transform.position, _explosion.transform.rotation);
 

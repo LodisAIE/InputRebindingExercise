@@ -13,8 +13,9 @@ public class SeekEnemyBehaviour : EnemyBehaviour
         _movementBehaviour = GetComponent<SpaceshipMovementBehaviour>();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         if (!InputBehaviour.Player)
             return;
 

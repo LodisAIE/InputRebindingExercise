@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class InputBehaviour : MonoBehaviour
 {
@@ -21,15 +23,22 @@ public class InputBehaviour : MonoBehaviour
         _player = gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move(CallbackContext context)
     {
-        _movementBehaviour.MoveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        _movementBehaviour.MoveDirection = context.ReadValue<Vector2>();
+    }
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            _spawnerBehaviourLeft.FireProjectile();
-            _spawnerBehaviourRight.FireProjectile();
-        }
+    public void Fire(CallbackContext context)
+    {
+        if (context.phase != InputActionPhase.Performed)
+            return;
+
+        _spawnerBehaviourLeft.FireProjectile();
+        _spawnerBehaviourRight.FireProjectile();
+    }
+
+    public void Pause(CallbackContext context)
+    {
+        GameManagerBehaviour.Instance.TogglePause();
     }
 }

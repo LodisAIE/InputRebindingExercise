@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootEnemyBehaviour : MonoBehaviour
+public class ShootEnemyBehaviour : EnemyBehaviour
 {
     [SerializeField]
     private ProjectileSpawnerBehaviour _projectileSpawner;
@@ -11,8 +11,9 @@ public class ShootEnemyBehaviour : MonoBehaviour
     private float _timeSinceLastShot;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         _timeSinceLastShot = Time.time;
     }
 
