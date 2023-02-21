@@ -166,7 +166,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 662, y: 429.6}
+  m_SizeDelta: {x: 838.1, y: 472.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53542892
 MonoBehaviour:
@@ -270,8 +270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331, y: -35.800003}
-  m_SizeDelta: {x: 289, y: 30}
+  m_AnchoredPosition: {x: 419.05, y: -39.36667}
+  m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269930485
 MonoBehaviour:
@@ -319,12 +319,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269930488}
         m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
-        m_MethodName: RebindComposite
+        m_MethodName: Rebind
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -381,6 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonTextBox: {fileID: 1082282239}
   _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
+  _actionText: Up
 --- !u!1 &368492776
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,8 +800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331, y: -179.00002}
-  m_SizeDelta: {x: 622.9, y: 30}
+  m_AnchoredPosition: {x: 419.05, y: -196.83334}
+  m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631155551
 MonoBehaviour:
@@ -848,12 +849,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 631155554}
         m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
-        m_MethodName: RebindComposite
+        m_MethodName: Rebind
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -910,6 +911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonTextBox: {fileID: 1609986266}
   _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
+  _actionText: Left
 --- !u!1 &647435041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331, y: -393.80005}
+  m_AnchoredPosition: {x: 419.05, y: -433.03336}
   m_SizeDelta: {x: 289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &708791432
@@ -1365,8 +1367,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331, y: -107.40001}
-  m_SizeDelta: {x: 289, y: 30}
+  m_AnchoredPosition: {x: 419.05, y: -118.100006}
+  m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740201752
 MonoBehaviour:
@@ -1414,12 +1416,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 740201755}
         m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
-        m_MethodName: RebindComposite
+        m_MethodName: Rebind
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1476,6 +1478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonTextBox: {fileID: 1544157070}
   _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
+  _actionText: Down
 --- !u!1 &933457930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,8 +3571,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331, y: -322.2}
-  m_SizeDelta: {x: 289, y: 30}
+  m_AnchoredPosition: {x: 419.05, y: -354.30002}
+  m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724090939
 MonoBehaviour:
@@ -3618,11 +3621,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1724090942}
         m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
         m_MethodName: Rebind
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3679,6 +3682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonTextBox: {fileID: 582091949}
   _rebindAction: {fileID: 8728493869376185514, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
+  _actionText: Fire
 --- !u!1 &1794967618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,8 +3896,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 331, y: -250.60002}
-  m_SizeDelta: {x: 289, y: 30}
+  m_AnchoredPosition: {x: 419.05, y: -275.56668}
+  m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834202759
 MonoBehaviour:
@@ -3941,12 +3945,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1834202762}
         m_TargetAssemblyTypeName: InputRebindingBehaviour, Assembly-CSharp
-        m_MethodName: RebindComposite
+        m_MethodName: Rebind
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4003,6 +4007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonTextBox: {fileID: 1037600454}
   _rebindAction: {fileID: 3590622061205415199, guid: bf50013572f80584cae17dbf4a2f0f5c, type: 3}
+  _actionText: Right
 --- !u!1 &1852865236
 GameObject:
   m_ObjectHideFlags: 0

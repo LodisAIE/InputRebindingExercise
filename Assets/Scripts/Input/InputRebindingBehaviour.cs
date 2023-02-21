@@ -10,9 +10,10 @@ public class InputRebindingBehaviour : MonoBehaviour
     private TextMeshProUGUI _buttonTextBox;
     [SerializeField]
     private InputActionReference _rebindAction;
+    [SerializeField]
+    private string _actionText;
     private PlayerInput _playerInput;
-
-    private string _previousButtonText;
+    private int _index;
 
     // Start is called before the first frame update
     void Start()
@@ -20,25 +21,13 @@ public class InputRebindingBehaviour : MonoBehaviour
         _playerInput = GameManagerBehaviour.Instance.PlayerController;
     }
 
-    public void Rebind()
+    public void Rebind(int index = 0)
     {
-        _previousButtonText = _buttonTextBox.text;
+        _index = index;
         _buttonTextBox.text = "Listening...";
         _playerInput.SwitchCurrentActionMap("Menu");
 
-        _rebindAction.action.PerformInteractiveRebinding(0)
-            .OnComplete(OnRebindComplete)
-            .Start();
-    }
-
-    public void RebindComposite(int index)
-    {
-        _previousButtonText = _buttonTextBox.text;
-        _buttonTextBox.text = "Listening...";
-        _playerInput.SwitchCurrentActionMap("Menu");
-
-        _rebindAction.action.PerformInteractiveRebinding(0).WithTargetBinding(index)
-            .OnMatchWaitForAnother(0.1f)
+        _rebindAction.action.PerformInteractiveRebinding(_index)
             .OnComplete(OnRebindComplete)
             .Start();
     }
@@ -47,7 +36,7 @@ public class InputRebindingBehaviour : MonoBehaviour
     {
         Debug.Log("Rebind completed");
         operation.Dispose();
-        _buttonTextBox.text = _previousButtonText + _rebindAction.action.GetBindingDisplayString();
+        _buttonTextBox.text = _actionText + " - " + _rebindAction.action.bindings[_index].ToDisplayString();
         _playerInput.SwitchCurrentActionMap("Ship");
     }
 }
